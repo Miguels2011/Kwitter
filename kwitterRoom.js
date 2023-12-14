@@ -18,7 +18,7 @@ function addRoom()
 {
   roomName = document.getElementById("roomName").value; 
 
-  firebase.database().ref("/").child("roomName").update
+  firebase.database().ref("/").child(roomName).update
   ({ 
     purpose : "adicionar o nome de sala "
   });
@@ -34,12 +34,10 @@ function getData() {  firebase.database().ref("/").on('value', function(snapshot
                 roomNames = childKey; 
 
        console.log("Nome da Sala - " + roomNames);
-      row = "<div class='roomName' id="+roomNames+" onclick='redirectToRoomName(this.id)' >#"+ roomNames +"</div><hr>"; /* Explicação: O row(fileira) é uma variável que define a área de texto dentro da coluna do console, pois para cada navegador pode ser diferente, então o row padroniza. */
+      row = "<div class='roomName' id="+ roomNames +" onclick='redirectToRoomName(this.id)' >#"+ roomNames +"</div><hr>";
      
 
-      document.getElementById("output").innerHTML += row; /* Chamar o id output */
-      /* Importante: Se apenas escrevermos "=" apenas o nome da sala será exibido. No entanto, quando temos muitos nomes
-        de salas, e queremos exibir todos dentro de um único elemento HTML, utilizamos "+="" e em seguida escrevemos a variável row para enfileirar. */
+      document.getElementById("output").innerHTML += row; 
     });
   });
 
@@ -47,11 +45,11 @@ function getData() {  firebase.database().ref("/").on('value', function(snapshot
 
 getData();
 
-function redirectToRoomName(name) /* Adicionar a função redirectToRoomName  */
+function redirectToRoomName(name)
 {
   console.log(name); 
-  localStorage.setItem("roomName", name); /* Adicione o roomName (nome da sala) ao localStorage. */
-    window.location = "kwitterPage.html"; /* redirecionar para a tela kwitterPage.html */
+  localStorage.setItem("roomName", name);
+    window.location = "kwitterPage.html";
 }
 
 function logout()

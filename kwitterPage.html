@@ -18,7 +18,7 @@
 <body>
 
 <div class="container">
-	<button id="logout" class="glyphicon glyphicon-log-out btn btn-danger">Logout</button> <!-- Adicionar a função onclick="logout();" -->
+	<button id="logout" class="glyphicon glyphicon-log-out btn btn-danger" onclick="logout()">Logout</button>
 	<center>
 		<h1 class="header">	
 			Kwitter	
@@ -26,19 +26,19 @@
 				<img src="m2.png">
 			</sup>
 		</h1>
-	<div style="text-align: left;margin-bottom: 70px;"> </div> <!-- Adicionar id="output", à div que será utilizada para conter as mensagens -->
+	<div style="text-align: left;margin-bottom: 70px;" id="output"> </div>
 	</center>
 </div>
 
 <center>
 	<div class="inputDivMessagePage">
 		<label>Enviar:</label>
-		<!-- Adicionar uma input box (caixa de entrada) com type, id, class e placeholder, para aceitar a mensagem do usuário -->
+			<input type="text" id="msg" class="form-control" placeholder="Escreva sua Mensagem">
 
-		<!-- Adicionar a função onclick="send()" --> <button class="btn btn-success">Enviar</button> 
+<button class="btn btn-success" onclick="send()">Enviar</button> 
 	</div>
 </center>
 
-<script src=""></script> <!-- Adicionar o link para o arquivo js kwitterPage.js -->
+<script src="kwitterPage.js"></script>
 </body>
 </html>
